@@ -1,4 +1,5 @@
 🪨 Stone Paper Scissors Game
+website: https://sr6792.github.io/Stone-paper-scissonr/
 
 A simple web-based Stone Paper Scissors game built with HTML, CSS, and JavaScript. Play against the computer and see who wins!
 🎮 How to Play
