@@ -9,11 +9,11 @@ let gameOver=false;//if true then stop
 const button= document.querySelector("button");
 function login(){
     const name=prompt("Enter your name:");
-    const output= document.querySelector(".op");
+    const output= document.querySelector(".h");
     output.innerHTML="";
     if(name)
     {
-        output.innerHTML = `${name}`;
+        output.innerHTML = `${name} Score`;
     }
 }
 button.addEventListener("click",login);//login done
@@ -97,7 +97,47 @@ function checkScore(s,x)//0-rock,1-paper,2-scissor
     if(gameOver) return;
     const hs=document.querySelector(".hs");
     const cs=document.querySelector(".cs");
-if (s === x) {
+    const hs1=document.querySelector(".hs1");
+    const cs1=document.querySelector(".cs1");
+    //to display what u and pc habe selected
+    const hChoice=document.createElement("p");
+    const compChoice=document.createElement("p");
+    //human
+    hs1.textContent="";
+    cs1.textContent="";
+    if(s===0)
+    {
+
+        hChoice.textContent='Chosen rock';
+    }
+    else if(s===1)
+    {
+        hChoice.textContent='Chosen paper';
+    }
+    else
+    {
+        hChoice.textContent='Chosen scissor';
+    }
+    hs1.appendChild(hChoice);
+    //pc choice
+
+    if(x===0)
+    {
+        compChoice.textContent='Chosen rock';
+    }
+    else if(x===1)
+    {
+        compChoice.textContent='Chosen paper';
+    }
+    else
+    {
+        compChoice.textContent='Chosen scissor';
+    }
+    cs1.appendChild(compChoice);
+
+
+
+    if (s === x) {
         result.innerHTML = "Round result: It's a draw!";
     } else if (
         (s === 0 && x === 2) ||
@@ -111,10 +151,9 @@ if (s === x) {
         result.innerHTML = "Round result: Computer wins!";
     }
 
-    roundCount++; // ✅ Increase round count
-    hs.innerHTML = `Human: ${humanScore}`;
-    cs.innerHTML = `Computer: ${computerScore}`;
-    if(roundCount==5){
+    hs.innerHTML = `${humanScore}`;
+    cs.innerHTML = `${computerScore}`;
+    if(humanScore===5|| computerScore===5){
         gameOver=true;
         if(humanScore>computerScore)
         {
